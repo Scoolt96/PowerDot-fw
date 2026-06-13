@@ -10,14 +10,20 @@ und installiert sie auf Knopfdruck (Web-UI → Firmware-Update).
 
 ## Changelog
 
-### In Arbeit (noch nicht veröffentlicht)
+### v2.0.1 — 2026-06-13
+**Neu**
 - Online-Update direkt über GitHub (Versionsprüfung + Ein-Klick-Installation)
 - Live-Versionsanzeige aus dem neuesten GitHub-Release
 - Update-Fortschritt als Vollbild-Anzeige am Gerät und in der Web-UI
 - Firmware-Version in den Dot-Untereinstellungen sichtbar
 - Auto-Reset der Arc-Maximalwerte: nie / täglich / wöchentlich / monatlich
 - Splash-Screen mit doppeltem, gegenläufig pulsierendem Ring
-- Drag-&-Drop-Fix beim manuellen Firmware-Upload
+
+**Behoben**
+- Werksreset über die Web-UI löscht jetzt auch die Solar-Ertrags-Baseline (`solartd`)
+- Werksreset am Gerät (5 s halten) bouncte beim Antippen — Touch-Settling wird toleriert
+- Drag-&-Drop beim manuellen Firmware-Upload
+- Update-Prüfung vergleicht Versionen jetzt semantisch (kein versehentliches Downgrade-Angebot)
 
 ### v2.0.0 — 2026-06-12
 - Erste öffentliche Release-Version
