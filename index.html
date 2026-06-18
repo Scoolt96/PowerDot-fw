@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>PowerDot Flash Tool</title>
+<title>PowerDot Flash Tool v4</title>
 <style>
 *{box-sizing:border-box;margin:0;padding:0;}
 body{background:#050d18;font-family:system-ui,-apple-system,Arial,sans-serif;color:#fff;min-height:100vh;display:flex;flex-direction:column;}
@@ -63,6 +63,7 @@ h1{font-size:32px;font-weight:700;margin:0 0 12px;}
 footer{position:relative;z-index:1;text-align:center;padding:20px;font-size:12px;color:rgba(255,255,255,0.2);border-top:1px solid rgba(255,255,255,0.05);}
 footer a{color:rgba(255,255,255,0.3);text-decoration:none;}
 </style>
+<script src="https://cdn.jsdelivr.net/npm/esptool-js@0.4.3/bundle/bundle.js"></script>
 </head>
 <body>
 <div class="grid-bg"></div>
@@ -104,7 +105,7 @@ footer a{color:rgba(255,255,255,0.3);text-decoration:none;}
           <div class="tb-dot" style="background:#ff5555;"></div>
           <div class="tb-dot" style="background:#ffaa00;"></div>
           <div class="tb-dot" style="background:#00ff88;"></div>
-          <div class="tb-title">POWERDOT FLASHTOOL</div>
+          <div class="tb-title" id="tool-title">POWERDOT FLASHTOOL</div>
           <div id="conn-badge">NICHT VERBUNDEN</div>
         </div>
         <div id="flash-log">
@@ -131,6 +132,7 @@ footer a{color:rgba(255,255,255,0.3);text-decoration:none;}
 <footer>© 2025 <a href="https://servicepoint.st">servicepoint.st</a> — Victron Energy Partner Österreich</footer>
 
 <script>
+const TOOL_VERSION = 'v4';
 const GH_REPO   = 'Scoolt96/PowerDot-fw';
 const GH_API    = 'https://api.github.com/repos/' + GH_REPO + '/releases';
 
@@ -236,8 +238,7 @@ async function ftConnect() {
     ftPort = await navigator.serial.requestPort();
     ftLog('✓ Port ausgewählt.', 'rgba(255,255,255,0.5)');
 
-    ftLog('Lade esptool…', 'rgba(0,180,255,0.5)');
-    const { ESPLoader, Transport } = await import('https://esm.sh/esptool-js@0.4.3');
+    const { ESPLoader, Transport } = esptooljs;
 
     ftTransport = new Transport(ftPort, false);
     ftLoader = new ESPLoader({
@@ -369,6 +370,8 @@ async function ftFlash() {
 
 (function() {
   document.getElementById('req-browser').style.background = 'serial' in navigator ? '#00ff88' : '#ff4455';
+  document.getElementById('tool-title').textContent = 'POWERDOT FLASHTOOL ' + TOOL_VERSION;
+  document.title = 'PowerDot Flash Tool ' + TOOL_VERSION;
   ftLoadReleases();
 })();
 </script>
