@@ -4,9 +4,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>PowerDot Flash Tool</title>
-<script src="https://unpkg.com/buffer@6/index.min.js"></script>
-<script>if(typeof buffer!=='undefined') globalThis.Buffer = buffer.Buffer;</script>
-<script src="https://unpkg.com/esptool-js@0.4.3/bundle.js"></script>
 <style>
 *{box-sizing:border-box;margin:0;padding:0;}
 body{background:#050d18;font-family:system-ui,-apple-system,Arial,sans-serif;color:#fff;min-height:100vh;display:flex;flex-direction:column;}
@@ -238,6 +235,9 @@ async function ftConnect() {
     ftLog('Warte auf Port-Auswahl…', 'rgba(0,180,255,0.7)');
     ftPort = await navigator.serial.requestPort();
     ftLog('✓ Port ausgewählt.', 'rgba(255,255,255,0.5)');
+
+    ftLog('Lade esptool…', 'rgba(0,180,255,0.5)');
+    const { ESPLoader, Transport } = await import('https://esm.sh/esptool-js@0.4.3');
 
     ftTransport = new Transport(ftPort, false);
     ftLoader = new ESPLoader({
