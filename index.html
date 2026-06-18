@@ -316,8 +316,8 @@ async function ftFlash() {
     ftLog('Flash-Plan: ' + flashPlan.map(p => p.asset.name).join(', '), 'rgba(255,255,255,0.35)');
 
     async function fetchAssetBuf(asset) {
-      // raw.githubusercontent.com has CORS — requires file committed to repo at that tag
-      const rawUrl = 'https://raw.githubusercontent.com/' + GH_REPO + '/' + selectedFW.tag_name + '/' + asset.name;
+      // raw.githubusercontent.com has CORS — files live in firmware/{tag}/ on main branch
+      const rawUrl = 'https://raw.githubusercontent.com/' + GH_REPO + '/main/firmware/' + selectedFW.tag_name + '/' + asset.name;
       const r = await fetch(rawUrl);
       if (!r.ok) throw new Error('Download fehlgeschlagen: ' + asset.name + ' (Datei nicht im Repo bei Tag ' + selectedFW.tag_name + ')');
       return r.arrayBuffer();
