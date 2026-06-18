@@ -317,8 +317,7 @@ async function ftFlash() {
     ftLog('Flash-Plan: ' + flashPlan.map(p => p.asset.name).join(', '), 'rgba(255,255,255,0.35)');
 
     async function fetchAssetBuf(asset) {
-      const apiUrl = 'https://api.github.com/repos/' + GH_REPO + '/releases/assets/' + asset.id;
-      const r = await fetch(apiUrl, { headers: { 'Accept': 'application/octet-stream' } });
+      const r = await fetch(asset.browser_download_url);
       if (!r.ok) throw new Error('Download fehlgeschlagen: ' + asset.name + ' (' + r.status + ')');
       return r.arrayBuffer();
     }
