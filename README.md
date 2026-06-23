@@ -10,7 +10,17 @@ und installiert sie auf Knopfdruck (Web-UI Firmware-Update).
 
 ## Changelog
 
-### v2.0.2 - 2026-06-18
+### v2.0.3-beta - 2026-06-23
+
+**Behoben**
+- Autoscroll/Timeout/Helligkeit-Wert wird nach Neustart korrekt wiederhergestellt (NVS-Debounce entfernt)
+- OTA-Updatepruefung funktioniert jetzt auch mit Beta-Releases (HTTP 404 behoben)
+- Werksreset-Arc bricht nicht mehr vorzeitig ab beim 5s-Halten (PRESS_LOST-Fehlausloeser entfernt)
+- WiFi-Setup: Eingabefelder heller und besser sichtbar
+
+---
+
+### v2.0.2-beta - 2026-06-18
 
 **Behoben**
 - Autoscroll-Wert ging nach Stromtrennung verloren - finaler Arc-Wert wird beim Loslassen immer in NVS gespeichert
@@ -21,7 +31,7 @@ und installiert sie auf Knopfdruck (Web-UI Firmware-Update).
 
 ---
 
-### v2.0.1 - 2026-06-13
+### v2.0.1-beta - 2026-06-13
 
 **Neu**
 - Online-Update direkt ueber GitHub (Versionspruefung + Ein-Klick-Installation)
@@ -39,7 +49,7 @@ und installiert sie auf Knopfdruck (Web-UI Firmware-Update).
 
 ---
 
-### v2.0.0 - 2026-06-12
+### v2.0.0-beta - 2026-06-12
 - Erste oeffentliche Release-Version
 - Victron-Energieueberwachung (Batterie, Solar, Netz, Lasten, EVCS)
 - Uebersicht mit Peak-Hold-Arcs
