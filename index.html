@@ -25,13 +25,17 @@ main{flex:1;position:relative;z-index:1;padding:44px 24px 60px;max-width:900px;m
 h1{font-size:32px;font-weight:700;margin:0 0 12px;}
 .subtitle{color:rgba(255,255,255,0.45);font-size:15px;line-height:1.6;max-width:460px;margin:0 auto;}
 
-.tool-grid{display:grid;grid-template-columns:1fr 1.7fr;gap:24px;align-items:start;}
+.tool-grid{display:grid;grid-template-columns:1fr 1.7fr;gap:24px;align-items:stretch;}
 @media(max-width:640px){.tool-grid{grid-template-columns:1fr;}}
 
 .card{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:12px;padding:24px;margin-bottom:16px;}
 .card-label{font-size:10px;color:rgba(0,180,255,0.5);font-family:'Courier New',monospace;letter-spacing:2px;margin-bottom:14px;}
 
-#version-list{}
+#version-card{display:flex;flex-direction:column;min-height:0;margin-bottom:0;}
+#version-list{flex:1 1 0;min-height:0;overflow-y:auto;padding-right:6px;}
+#version-list::-webkit-scrollbar{width:6px;}
+#version-list::-webkit-scrollbar-thumb{background:rgba(0,180,255,0.25);border-radius:3px;}
+#version-list::-webkit-scrollbar-track{background:transparent;}
 
 .req-row{display:flex;align-items:center;gap:10px;font-size:13px;color:rgba(255,255,255,0.6);margin-bottom:8px;}
 .req-row:last-child{margin-bottom:0;}
@@ -83,18 +87,10 @@ footer a{color:rgba(255,255,255,0.3);text-decoration:none;}
 
   <div class="tool-grid">
 
-    <div>
-      <div class="card">
-        <div class="card-label">VERSION WÄHLEN</div>
-        <div id="version-list">
-          <div style="color:rgba(255,255,255,0.3);font-size:12px;padding:8px 0;">Lade Versionen…</div>
-        </div>
-      </div>
-      <div class="card">
-        <div class="card-label">VORAUSSETZUNGEN</div>
-        <div class="req-row"><span id="req-browser" class="req-dot" style="background:#555;"></span>Chrome oder Edge Browser</div>
-        <div class="req-row"><span class="req-dot" style="background:#ffaa00;"></span>USB-C Kabel zum Display</div>
-        <div class="req-row"><span class="req-dot" style="background:#ffaa00;"></span>Waveshare ESP32-S3-Touch-LCD-1.46 <span style="color:rgba(255,255,255,0.3);font-size:11px;">(Art. 29565)</span></div>
+    <div class="card" id="version-card">
+      <div class="card-label">VERSION WÄHLEN</div>
+      <div id="version-list">
+        <div style="color:rgba(255,255,255,0.3);font-size:12px;padding:8px 0;">Lade Versionen…</div>
       </div>
     </div>
 
@@ -123,6 +119,13 @@ footer a{color:rgba(255,255,255,0.3);text-decoration:none;}
         </div>
       </div>
       <div id="no-serial">⚠ Web Serial wird von diesem Browser nicht unterstützt. Bitte Chrome oder Edge verwenden.</div>
+    </div>
+
+    <div class="card" id="req-card">
+      <div class="card-label">VORAUSSETZUNGEN</div>
+      <div class="req-row"><span id="req-browser" class="req-dot" style="background:#555;"></span>Chrome oder Edge Browser</div>
+      <div class="req-row"><span class="req-dot" style="background:#ffaa00;"></span>USB-C Kabel zum Display</div>
+      <div class="req-row"><span class="req-dot" style="background:#ffaa00;"></span>Waveshare ESP32-S3-Touch-LCD-1.46 <span style="color:rgba(255,255,255,0.3);font-size:11px;">(Art. 29565)</span></div>
     </div>
 
   </div>
