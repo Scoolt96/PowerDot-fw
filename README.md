@@ -10,6 +10,20 @@ und installiert sie auf Knopfdruck (Web-UI Firmware-Update).
 
 ## Changelog
 
+### v2.0.4-beta - 2026-06-27
+
+**Neu**
+- "MQTT nicht verbunden"-Screen: das Display zeigt klar an, wenn der Cerbo konfiguriert, MQTT aber getrennt ist (inkl. Kurzanleitung) - verschwindet automatisch bei Verbindung
+- Setup-Assistent: neuer 3. Schritt "MQTT aktivieren" (Einstellungen -> Integrationen -> MQTT-Zugang)
+- Hotspot-Name kontextabhaengig: "PowerDot Einrichtung" bei der Ersteinrichtung, "PowerDot Web UI" beim manuell gestarteten Hotspot
+
+**Behoben**
+- Kein periodisches Einfrieren mehr bei nicht erreichbarem Cerbo/MQTT (nicht-blockierender TCP-Probe statt blockierendem Connect)
+- Splash-Haenger behoben: MQTT-Connect laeuft jetzt unsichtbar in der Splash-Animation
+- Setup-Assistent: "Verbinden"-Button und WLAN-Auswahl funktionierten nicht (defektes JavaScript) - behoben
+
+---
+
 ### v2.0.3-beta - 2026-06-23
 
 **Behoben**
