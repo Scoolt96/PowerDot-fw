@@ -347,7 +347,7 @@ async function ftFlash() {
     async function fetchAssetBuf(asset) {
       // raw.githubusercontent.com has CORS — files live in firmware/{tag}/ on main branch
       const rawUrl = 'https://raw.githubusercontent.com/' + GH_REPO + '/main/firmware/' + selectedFW.tag_name + '/' + asset.name;
-      const r = await fetch(rawUrl);
+      const r = await fetch(rawUrl, { cache: 'no-store' });
       if (!r.ok) throw new Error('Download fehlgeschlagen: ' + asset.name + ' (Datei nicht im Repo bei Tag ' + selectedFW.tag_name + ')');
       return r.arrayBuffer();
     }
