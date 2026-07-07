@@ -36,6 +36,10 @@ h1{font-size:32px;font-weight:700;margin:0 0 12px;}
 #version-list::-webkit-scrollbar{width:6px;}
 #version-list::-webkit-scrollbar-thumb{background:rgba(0,180,255,0.25);border-radius:3px;}
 #version-list::-webkit-scrollbar-track{background:transparent;}
+.prod-tabs{display:flex;gap:8px;}
+.prod-tab{flex:1;padding:10px 8px;background:transparent;border:1px solid rgba(255,255,255,0.1);color:rgba(255,255,255,0.5);border-radius:8px;font-size:13px;font-weight:600;cursor:pointer;font-family:system-ui;transition:all .2s;}
+.prod-tab:hover{border-color:rgba(0,180,255,0.4);color:#fff;}
+.prod-tab.active{background:rgba(0,180,255,0.12);border-color:rgba(0,180,255,0.5);color:#00b4ff;}
 
 .req-row{display:flex;align-items:center;gap:10px;font-size:13px;color:rgba(255,255,255,0.6);margin-bottom:8px;}
 .req-row:last-child{margin-bottom:0;}
@@ -88,6 +92,11 @@ footer a{color:rgba(255,255,255,0.3);text-decoration:none;}
   <div class="tool-grid">
 
     <div class="card" id="version-card">
+      <div class="card-label">PRODUKT WÄHLEN</div>
+      <div class="prod-tabs" style="margin-bottom:18px;">
+        <button class="prod-tab active" data-repo="powerdot" onclick="selectProduct('powerdot')">PowerDot</button>
+        <button class="prod-tab" data-repo="air" onclick="selectProduct('air')">PowerDot Air</button>
+      </div>
       <div class="card-label">VERSION WÄHLEN</div>
       <div id="version-list">
         <div style="color:rgba(255,255,255,0.3);font-size:12px;padding:8px 0;">Lade Versionen…</div>
@@ -135,8 +144,12 @@ footer a{color:rgba(255,255,255,0.3);text-decoration:none;}
 
 <script>
 const TOOL_VERSION = 'v4';
-const GH_REPO   = 'Scoolt96/PowerDot-fw';
-const GH_API    = 'https://api.github.com/repos/' + GH_REPO + '/releases';
+const REPOS = {
+  powerdot: { repo: 'Scoolt96/PowerDot-fw',     label: 'POWERDOT' },
+  air:      { repo: 'Scoolt96/PowerDot-Air-fw', label: 'POWERDOT AIR' }
+};
+let GH_REPO   = REPOS.powerdot.repo;
+function ghApi() { return 'https://api.github.com/repos/' + GH_REPO + '/releases'; }
 
 let releases    = [];
 let selectedFW  = null;
@@ -149,7 +162,7 @@ async function ftLoadReleases() {
   const versionList = document.getElementById('version-list');
   versionList.innerHTML = '<div style="color:rgba(255,255,255,0.3);font-size:12px;padding:8px 0;">Lade Versionen von GitHub…</div>';
   try {
-    const resp = await fetch(GH_API, { headers: { 'Accept': 'application/vnd.github+json' } });
+    const resp = await fetch(ghApi(), { headers: { 'Accept': 'application/vnd.github+json' } });
     if (resp.status === 404) throw new Error('REPO_PRIVATE');
     if (!resp.ok) throw new Error('GitHub API Fehler ' + resp.status);
     releases = await resp.json();
@@ -199,6 +212,20 @@ function selectRelease(i) {
     el.style.borderColor = k===i ? 'rgba(168,85,247,0.5)' : 'rgba(255,255,255,0.08)';
     el.style.background  = k===i ? 'rgba(168,85,247,0.1)' : 'transparent';
   });
+}
+
+function selectProduct(key) {
+  const entry = REPOS[key];
+  if (!entry || entry.repo === GH_REPO) return;
+  GH_REPO = entry.repo;
+  document.querySelectorAll('.prod-tab').forEach(t => {
+    t.classList.toggle('active', t.dataset.repo === key);
+  });
+  document.getElementById('tool-title').textContent = entry.label + ' FLASHTOOL ' + TOOL_VERSION;
+  // Auswahl zurücksetzen und Versionen des neuen Produkts laden
+  selectedFW = null;
+  releases   = [];
+  ftLoadReleases();
 }
 
 function ftLog(msg, color) {
