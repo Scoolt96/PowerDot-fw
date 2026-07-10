@@ -378,14 +378,17 @@ async function ftFlash() {
       }
     });
 
-    await ftLoader.hardReset();
+    // KEIN Auto-Reset! Ein Warm-Reset direkt in den frisch geflashten
+    // Bootloader laesst das OPI-PSRAM nicht sauber hochkommen -> weisser
+    // flackernder Schleier. Das Geraet bleibt jetzt dunkel; der Nutzer
+    // startet per Stromtrennung KALT und sauber (siehe Meldung).
     ftProgress(100);
 
     ftLog('', '');
     ftLog('✓ Flash erfolgreich!', '#00ff88');
-    ftLog('⚡ WICHTIG: Gerät jetzt einmal KOMPLETT vom Strom trennen', '#ffcc00');
+    ftLog('⚡ Zum Starten: Gerät jetzt vom Strom trennen und neu verbinden', '#ffcc00');
     ftLog('   (USB-Kabel raus, ca. 5 s warten, wieder rein).', '#ffcc00');
-    ftLog('   Ein reiner Neustart reicht nicht — sonst weißer Schleier.', '#ffcc00');
+    ftLog('   Das Display bleibt bis dahin bewusst dunkel — kein Flackern.', 'rgba(255,255,255,0.55)');
     document.getElementById('conn-badge').textContent = 'FERTIG ✓';
     btnFlash.textContent = '✓ Geflasht';
 
