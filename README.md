@@ -10,6 +10,16 @@ und installiert sie auf Knopfdruck (Web-UI Firmware-Update).
 
 ## Changelog
 
+### v2.0.5-beta - 2026-07-10
+
+**Neu**
+- Setup-Assistent (Schritt 3): MQTT-Verbindungstest - "Speichern & Neustart" wird erst freigegeben, wenn die Verbindung zum Cerbo/Broker erfolgreich getestet wurde (verhindert das Speichern einer falschen IP oder bei nicht aktiviertem MQTT-Zugang)
+
+**Verbessert**
+- OTA-Updatepruefung zuverlaessiger: laeuft jetzt ueber github.com (releases.atom) statt api.github.com, das auf dem Geraet im TLS-Handshake haengen konnte
+
+---
+
 ### v2.0.4-beta - 2026-06-27
 
 **Neu**
