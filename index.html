@@ -382,8 +382,10 @@ async function ftFlash() {
     ftProgress(100);
 
     ftLog('', '');
-    ftLog('✓ Flash erfolgreich! PowerDot startet neu.', '#00ff88');
-    ftLog('✓ USB-Kabel trennen — Display läuft jetzt.', '#00ff88');
+    ftLog('✓ Flash erfolgreich!', '#00ff88');
+    ftLog('⚡ WICHTIG: Gerät jetzt einmal KOMPLETT vom Strom trennen', '#ffcc00');
+    ftLog('   (USB-Kabel raus, ca. 5 s warten, wieder rein).', '#ffcc00');
+    ftLog('   Ein reiner Neustart reicht nicht — sonst weißer Schleier.', '#ffcc00');
     document.getElementById('conn-badge').textContent = 'FERTIG ✓';
     btnFlash.textContent = '✓ Geflasht';
 
