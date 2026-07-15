@@ -32,9 +32,9 @@ Web-Flash-Tool. Der Firmware-Quellcode bleibt privat.
 
 ## Web-Oberflaeche
 
-| Dashboard | Einstellungen |
-|---|---|
-| ![Dashboard](images/WEB_UI_1.png) | ![Einstellungen](images/WEB_UI_2_Einstellungen.png) |
+| Dashboard | Einstellungen | Firmware-Update |
+|---|---|---|
+| ![Dashboard](images/WEB_UI_1.png) | ![Einstellungen](images/WEB_UI_2_Einstellungen.png) | ![Firmware-Update](images/WEB_UI_3_Firmware.png) |
 
 ---
 
