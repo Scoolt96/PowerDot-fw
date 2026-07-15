@@ -1,14 +1,87 @@
-# PowerDot-fw
+# PowerDot
 
-Oeffentliche Firmware-Releases fuer **PowerDot** (.bin-OTA-Assets).
-Der Quellcode bleibt privat.
+![PowerDot](images/Makerworld_3.png)
 
-Das Geraet prueft ueber die GitHub-Release-API automatisch auf neue Versionen
-und installiert sie auf Knopfdruck (Web-UI Firmware-Update).
+**PowerDot** ist ein kompakter Energiemonitor mit rundem Touch-Display, der die
+wichtigsten Werte deiner Victron-Anlage auf einen Blick zeigt — Ladezustand (SOC),
+Solar, Netz und Verbrauch. Basis ist ein **ESP32-S3-Touch-LCD-1.46**.
+
+Die Daten kommen wahlweise
+- ueber das Netzwerk von einem **Victron GX / Cerbo (MQTT)** oder
+- **direkt per Bluetooth** aus den Victron-Geraeten (SmartShunt, SmartSolar MPPT,
+  Smart Lithium u.a.) — komplett **ohne Cerbo/GX**.
+
+Eingerichtet wird alles bequem ueber eine **Web-Oberflaeche** (eigener Hotspot beim
+ersten Start); Firmware-Updates laufen **ueber die Luft (OTA)** direkt aus diesem Repo.
+
+Dieses Repo enthaelt die **oeffentlichen Firmware-Releases** (.bin-OTA-Assets) und das
+Web-Flash-Tool. Der Firmware-Quellcode bleibt privat.
+
+---
+
+## Auf einen Blick
+
+- Rundes 1,46-Zoll-Touch-Display, mehrere Uebersichts- und Detailseiten (Wischgesten)
+- Peak-Hold-Arcs fuer Netz / Solar / Verbrauch
+- **Verlaufsgraphen:** interne Langzeit-Aufzeichnung + dezente Trend-Kurven im Hintergrund
+- Zwei Datenquellen: Victron GX/MQTT **oder** Victron-Bluetooth-Direktmodus
+- Web-UI fuer Einrichtung, Einstellungen, Verlauf (CSV-Export) und Firmware-Update
+- Optionales, 3D-druckbares **Schutzgehaeuse** (SKU 29565)
+
+---
+
+## Web-Oberflaeche
+
+| Dashboard | Einstellungen |
+|---|---|
+| ![Dashboard](images/WEB_UI_1.png) | ![Einstellungen](images/WEB_UI_2_Einstellungen.png) |
+
+---
+
+## Schutzgehaeuse
+
+Passgenaues, 3D-druckbares Gehaeuse fuer das ESP32-S3-Touch-LCD-1.46 (SKU 29565).
+
+| Explosionsdarstellung | Detail |
+|---|---|
+| ![Explosion](images/Render_1.png) | ![Render](images/Render_2.png) |
+
+---
+
+## Firmware installieren
+
+- **OTA (empfohlen):** Web-UI → *Firmware-Update* → *Auf Updates pruefen*.
+- **Web-Flash-Tool:** [scoolt96.github.io/PowerDot-fw](https://scoolt96.github.io/PowerDot-fw)
+  — Geraet per USB anschliessen und direkt im Browser flashen.
+
+> Nach einem Flash ueber das Web-Tool bleibt das Display bewusst dunkel. Bitte das
+> Geraet einmal vom Strom trennen und neu starten (sauberer Kaltstart).
 
 ---
 
 ## Changelog
+
+### v2.3.0-beta - 2026-07-15
+
+**Grosses Update:** Bluetooth-Direktmodus, Langzeit-Logger und Verlaufsgraphen.
+(Enthaelt auch die intern gebauten Zwischenstaende 2.1/2.2 — oeffentlich zuletzt v2.0.5-beta.)
+
+**Neu**
+- **Victron Bluetooth-Direktmodus:** PowerDot liest Victron-Geraete direkt per Bluetooth aus (SmartShunt, SmartSolar MPPT, Smart Lithium u.a.) — ganz **ohne Cerbo/GX**. Datenquelle (GX/Netzwerk oder Bluetooth) im Setup waehlbar, WLAN optional (echter Standalone-Betrieb)
+- **Geraete-Scan und -Einrichtung** in der Web-UI: nahe Victron-Geraete finden und per Instant-Readout-Key einbinden (bis zu 4). Weitere Typen (Wechselrichter, Orion DC-DC, AC-Lader, Battery Protect) als Detailkarten
+- **Demo-Modus** je Geraet: synthetische Werte zum Ausprobieren der Oberflaeche ohne Hardware
+- **Smart-Lithium-Seite** am Geraet: Zellspannungen, Balancer und Temperatur (erscheint nur, wenn ein Smart Lithium wirklich Daten liefert)
+- **Langzeit-Logger:** zeichnet SOC / Solar / Netz / Last / Batterie dauerhaft intern auf (Bluetooth-Modus bis 90 Tage, GX-Modus 24 h — der Rest liegt ohnehin im VRM). Ein-/ausschaltbar, CSV-Export ueber die Web-UI
+- **Verlaufsgraphen:** dezente Trend-Kurven im Hintergrund der Werte, eigene "Verlauf"-Seite mit Solar/Netz/Last/SOC auf einer Achse (Deckkraft einstellbar). Das Web-Dashboard zeigt den Verlauf jetzt blass hinter den einzelnen Kacheln
+
+**Verbessert**
+- Splash-Animation ruhiger (langsamer laufende Ringe)
+- Im Bluetooth-Modus werden nicht verfuegbare Seiten (Netz/Lasten/Wallbox) automatisch ausgeblendet
+
+**Hinweis**
+- Der Bluetooth-Direktmodus und einige der neuen Geraetetypen sind noch Beta (an echter Hardware bisher nur teilweise geprueft)
+
+---
 
 ### v2.0.5-beta - 2026-07-10
 
