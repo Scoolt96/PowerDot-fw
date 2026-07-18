@@ -32,9 +32,13 @@ Web-Flash-Tool. Der Firmware-Quellcode bleibt privat.
 
 ## Web-Oberflaeche
 
-| Dashboard | Einstellungen | Firmware-Update |
+| Dashboard | Einstellungen | Schreibschutz & PIN |
 |---|---|---|
-| ![Dashboard](images/WEB_UI_1.png) | ![Einstellungen](images/WEB_UI_2_Einstellungen.png) | ![Firmware-Update](images/WEB_UI_3_Firmware.png) |
+| ![Dashboard](images/WEB_UI_1_Dashboard.png) | ![Einstellungen](images/WEB_UI_2_Einstellungen.png) | ![Schreibschutz](images/WEB_UI_3_Schreibschutz.png) |
+| **Firmware-Update** | **Bluetooth-Direktmodus** | **Anleitung** |
+| ![Firmware](images/WEB_UI_4_Firmware.png) | ![Bluetooth](images/WEB_UI_5_Bluetooth.png) | ![Anleitung](images/WEB_UI_6_Anleitung.png) |
+| **Ersteinrichtung** | | |
+| ![Setup](images/WEB_UI_7_Setup.png) | | |
 
 ---
 
