@@ -61,6 +61,26 @@ Passgenaues, 3D-druckbares Gehaeuse fuer das ESP32-S3-Touch-LCD-1.46 (SKU 29565)
 
 ## Changelog
 
+### v2.4.1-beta - 2026-07-18
+
+**Bedienung & Web-UI ueberarbeitet:** frei sortierbare Seiten, Schreibschutz und ein aufgeraeumtes, animiertes Interface.
+
+**Neu**
+- **Hauptseiten frei sortierbar:** Reihenfolge der Seiten per Drag & Drop in der Web-UI aendern — sie spiegelt sich sofort auf dem Geraet
+- **Schreibschutz-Modus mit optionalem PIN:** sperrt alle Schreibzugriffe auf die Victron-Anlage (ESS-SOC, Netzpunkt, Wallbox), damit nichts versehentlich verstellt wird
+- **Einstellungen in Reitern:** Anzeige / Verlauf / Anlage statt einer langen Scroll-Seite
+- **Werte beim Hovern:** ueber den Verlaufs-Kurven (Startseite und Kacheln) den Wert zum Zeitpunkt einblenden
+- **Kurvenauswahl** fuer die Verlauf-Seite: einzelne Kurven (Solar/Netz/Last/SOC) an- und abwaehlen
+- **Dezente Einblend-Animationen** auf allen Web-Seiten
+
+**Verbessert**
+- **Verlauf-Seite am Geraet:** deutlich groessere, farbcodierte Werte (die Farbe zeigt die Zuordnung, keine Beschriftung noetig)
+- **Solar-Seite** blendet nicht vorhandene MPPT-/AC-Quellen aus, statt "--" anzuzeigen
+- **Wallbox** bekommt einen eigenen Verlaufsgraphen; GX-/Bluetooth-spezifische Seiten werden je nach Modus ein-/ausgeblendet
+- Aufgeraeumte, **emoji-freie** Oberflaeche; klarer abgesetzte Aufklapp-Bereiche
+
+---
+
 ### v2.3.0-beta - 2026-07-15
 
 **Grosses Update:** Bluetooth-Direktmodus, Langzeit-Logger und Verlaufsgraphen.
