@@ -65,6 +65,25 @@ Passgenaues, 3D-druckbares Gehaeuse fuer das ESP32-S3-Touch-LCD-1.46 (SKU 29565)
 
 ## Changelog
 
+### v2.6.0-beta - 2026-07-20
+
+**Zeitgesteuerte Modi, Nachtmodus und eine feste Startseite** — plus ein aufgeraeumtes Auswahlmenue in der Web-UI.
+
+**Neu**
+- **Zeitgesteuerte Modi + Nachtmodus:** bis zu 5 eigene Modi nach Uhrzeit & Wochentag (je Modus Helligkeit, Timeout, Autoscroll, feste Startseite, Toene stumm). Der Nachtmodus schaltet das Display in den Ruhezeiten ~30 s nach der letzten Beruehrung ab
+- **Startseiten-Ruecksprung pro Modus:** hat ein Modus eine feste Startseite, kehrt das Display nach 60 s ohne Eingabe automatisch dorthin zurueck
+- **Boot-Startseite:** in "Aktive Seiten" per Haus-Button festlegen, welche Seite beim Geraetestart zuerst erscheint (Einfachauswahl)
+- **Automatische Display-Drehung** ueber den Lagesensor
+- **Echte Uhrzeit** (RTC + Zeitserver) als Grundlage der zeitgesteuerten Funktionen
+- **Schoeneres Auswahlmenue in der Web-UI** (eigenes Dropdown statt des Browser-Standards)
+
+**Verbessert**
+- **Neu gestaltete Einstellungsseiten am Geraet** — einheitliche Schieberegler-Optik
+- **Solar-Detailanzeige** listet MPPT- und AC-Quellen jetzt alphabetisch
+- Behoben: die Seiten-Indikatoren am unteren Rand blendeten bei Web-Aenderungen faelschlich auf den Einstellungsseiten ein
+
+---
+
 ### v2.4.1-beta - 2026-07-18
 
 **Bedienung & Web-UI ueberarbeitet:** frei sortierbare Seiten, Schreibschutz und ein aufgeraeumtes, animiertes Interface.
