@@ -82,6 +82,9 @@ Passgenaues, 3D-druckbares Gehaeuse fuer das ESP32-S3-Touch-LCD-1.46 (SKU 29565)
 - **Solar-Detailanzeige** listet MPPT- und AC-Quellen jetzt alphabetisch
 - Behoben: die Seiten-Indikatoren am unteren Rand blendeten bei Web-Aenderungen faelschlich auf den Einstellungsseiten ein
 
+**Unter der Haube**
+- Firmware weiter auf die gemeinsame **PowerDotCore**-Bibliothek umgestellt (geteilte Basis mit PowerDot Air) — Uhrzeit, Display-Drehung, Modi und das neue Web-Dropdown kommen jetzt aus dem Core
+
 ---
 
 ### v2.4.1-beta - 2026-07-18
