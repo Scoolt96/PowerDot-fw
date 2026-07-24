@@ -65,6 +65,29 @@ Passgenaues, 3D-druckbares Gehaeuse fuer das ESP32-S3-Touch-LCD-1.46 (SKU 29565)
 
 ## Changelog
 
+### v2.7.0-beta - 2026-07-24
+
+**Vernetzung mehrerer Dots, erweiterte Verlaufsansicht und ein Ladestand-Overlay auf allen Seiten.**
+
+**Neu**
+- **Erweiterte Ansicht:** Verlaufsgraphen aller Werte mit Datumsbereich, synchronisiertem Hover und CSV-Export (wie bei PowerDot Air)
+- **Dot-Verbund:** mehrere Dots (PowerDot + PowerDot Air) in einem Dashboard zusammenfuehren — Netzwerk-Suche (mDNS), Live-Werte, Verlaufsgraphen je Dot, Werte ein-/ausblenden und "Alle Einstellungen uebernehmen" bei gleichem Modell; als dritte Kachel direkt auf der Startseite
+- **Akku-Ladestand (SOC)** als Overlay oben auf allen Hauptseiten, sobald der Akkumodus aktiv ist
+- **Neustart-Button** in der Web-UI (Akku-Karte + Startseite)
+- **Geraetename** auf der Startseite; das Feld wandert vom Reiter "Smart Home" in den Reiter "Geraet"
+- **Boot-Ton** beim Einschalten
+
+**Verbessert**
+- Verlauf-Legende in **kW** ab 1000 W
+- Home Assistant: Akku und Akkuspannung sinnvoll benannt, korrekte Nachkommastellen (Spannung 2 Stellen)
+- Langzeitaufzeichnung im GX-Modus **90 Tage** statt 24 h
+- Stabilitaetsfixes aus der Core-Durchsicht: 404-Weiterleitung in STA, Hotspot-Timer und -Anzeige, Menue-Timeout, Touch bei langer Geste
+
+**Unter der Haube**
+- Gemeinsame **PowerDotCore**-Bibliothek auf v0.20.0 — Erweiterte Ansicht, Dot-Verbund, Ladestand-Overlay und Neustart-Route kommen aus dem Core (geteilt mit PowerDot Air)
+
+---
+
 ### v2.6.0-beta - 2026-07-20
 
 **Zeitgesteuerte Modi, Nachtmodus und eine feste Startseite** — plus ein aufgeraeumtes Auswahlmenue in der Web-UI.
