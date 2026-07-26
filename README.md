@@ -65,6 +65,26 @@ Passgenaues, 3D-druckbares Gehaeuse fuer das ESP32-S3-Touch-LCD-1.46 (SKU 29565)
 
 ## Changelog
 
+### v2.7.1-beta - 2026-07-26
+
+**Ueberarbeitete Zeitachse in der Erweiterten Ansicht, klarere Batterie-Namen und eine Reihe Sicherheits- und Stabilitaetsfixes.**
+
+**Neu**
+- **Erweiterte Ansicht:** Zeitachse komplett ueberarbeitet — runde Zeitpunkte bei jeder Zeitspanne, kein Fehler mehr ab der 24-Stunden-Anzeige, Datum an Tageswechseln hervorgehoben
+- Batterie-Werte im Verlauf klar benannt: **Batterie Spannung / Strom / Leistung**
+- **Anleitung** in der Web-UI erweitert: Erweiterte Ansicht, Dot-Verbund, Neustart und weitere Neuerungen
+
+**Verbessert / Fixes**
+- **OTA-Update-Pruefung im GX-Modus** repariert ("HTTP -1" — die TLS-Puffer laufen jetzt ueber den PSRAM)
+- **Sicherheit:** CSRF-Schutz fuer Update, Werksreset, Neustart, Einstellungen und Verbund-Synchronisation
+- Toene und Alarm laufen im Hintergrund — kein kurzes Ruckeln der Anzeige mehr
+- Weitere Stabilitaetsfixes (Touch, RTC-Speicherung, DNS-Backoff)
+
+**Unter der Haube**
+- Gemeinsame **PowerDotCore**-Bibliothek auf v0.20.1
+
+---
+
 ### v2.7.0-beta - 2026-07-24
 
 **Vernetzung mehrerer Dots, erweiterte Verlaufsansicht und ein Ladestand-Overlay auf allen Seiten.**
