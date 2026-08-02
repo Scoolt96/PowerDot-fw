@@ -65,6 +65,12 @@ Passgenaues, 3D-druckbares Gehaeuse fuer das ESP32-S3-Touch-LCD-1.46 (SKU 29565)
 
 ## Changelog
 
+### v2.7.2-beta - 2026-08-02
+
+- Neu: QR-Code im WLAN-Setup. Mit der Handy-Kamera scannen und das Handy verbindet sich mit dem Einrichtungs-Hotspot "PowerDot Einrichtung"; die Setup-Seite oeffnet sich anschliessend von selbst. SSID und Adresse (192.168.4.1) stehen weiterhin als Fallback darunter.
+- Kleinere Display-Optimierungen: Software-Byteswap entfaellt (etwas fluessigeres Rendering, Farben unveraendert); Trend-Graph wird waehrend eines Seitenwechsels kurz ausgeblendet.
+
+
 ### v2.7.1-beta - 2026-07-26
 
 **Ueberarbeitete Zeitachse in der Erweiterten Ansicht, klarere Batterie-Namen und eine Reihe Sicherheits- und Stabilitaetsfixes.**
