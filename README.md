@@ -65,6 +65,13 @@ Passgenaues, 3D-druckbares Gehaeuse fuer das ESP32-S3-Touch-LCD-1.46 (SKU 29565)
 
 ## Changelog
 
+### v2.8.0-beta - 2026-08-04
+
+- Neu: Sprachumschaltung Deutsch/Englisch. In der Web-UI unter dem Reiter "Gerät/Device" die Sprache waehlen (nach Bestaetigung startet das Geraet kurz neu). Display UND die gesamte Web-Oberflaeche werden umgeschaltet.
+- Uebersetzt: alle Bildschirme und Web-Seiten (Setup, Dashboard, Einstellungen, Erweiterte Ansicht, Dot-Verbund, Hilfe), inklusive Screen- und Reiter-Namen.
+- Bewusst noch deutsch: die Diagramm-Metriknamen (dienen als Home-Assistant-Entity-IDs) und die Screen-Schema-Grafiken.
+
+
 ### v2.7.2-beta - 2026-08-02
 
 - Neu: QR-Code im WLAN-Setup. Mit der Handy-Kamera scannen und das Handy verbindet sich mit dem Einrichtungs-Hotspot "PowerDot Einrichtung"; die Setup-Seite oeffnet sich anschliessend von selbst. SSID und Adresse (192.168.4.1) stehen weiterhin als Fallback darunter.
