@@ -65,6 +65,50 @@ Passgenaues, 3D-druckbares Gehaeuse fuer das ESP32-S3-Touch-LCD-1.46 (SKU 29565)
 
 ## Changelog
 
+### v3.0.0 - 2026-08-14
+
+Erste Fassung ohne Beta-Kennzeichnung.
+
+## Neu: Temperatur- und Tanksensoren vom Cerbo GX
+
+Zwei neue Hauptseiten zeigen die Temperatur- und Tanksensoren, die am Cerbo GX
+haengen. Die Sensoren werden selbst erkannt (wie die AC-Wechselrichter), bis zu
+vier je Art. Ohne solche Sensoren bleiben die Seiten ausgeblendet.
+
+**Am Geraet**
+- Senkrechte Balken nebeneinander, der Wert steht darueber, der Name laeuft um
+  90 Grad gedreht am Balken entlang.
+- Balkenfarbe je Sensor einstellbar: feste Farbe oder drei Baender nach Wert
+  (z. B. Tank rot/gelb/gruen).
+- Verlaufsgraph im Hintergrund, wie auf den Seiten Batterie, Solar und Netz.
+- Name oder ganzer Sensor je Sensor ausblendbar.
+
+**Verlauf bleibt erhalten**
+Der Sensorverlauf wird auf dem Geraet gespeichert (ein Punkt pro Minute, 30
+Tage) und ueberlebt einen Neustart — die Kurve ist nach dem Einschalten sofort
+wieder da. Die Aufzeichnung liegt getrennt von der Energie-Historie, diese
+bleibt unveraendert.
+
+## Web-Oberflaeche
+
+- Je Sensor eine Kachel auf der Startseite, im Stil der Energie-Kacheln, mit
+  Verlaufskurve in der eingestellten Farbe und Wert am Zeiger.
+- Neuer Knopf je Zeile unter "Aktive Seiten": bestimmt, ob die Werte dieser
+  Seite auf der Web-Startseite erscheinen. Gilt auch fuer Ladezustand, Solar,
+  Netz, Verbrauch und Wallbox.
+- Die Zeilen unter "Aktive Seiten" sind kompakter; lange Seitennamen werden
+  gekuerzt statt umgebrochen.
+
+## Behoben
+
+- Die Einstellungsseite konnte weiss oder mit halb funktionierenden Knoepfen
+  laden. Ursache war der knappe Arbeitsspeicher beim Zusammenbauen der Seite.
+- Die Seitenpunkte der neuen Seiten erschienen nach einem Neustart erst nach
+  dem ersten Wischen.
+
+Benoetigt PowerDotCore v0.23.0.
+
+
 ### v2.8.0-beta - 2026-08-04
 
 - Neu: Sprachumschaltung Deutsch/Englisch. In der Web-UI unter dem Reiter "Gerät/Device" die Sprache waehlen (nach Bestaetigung startet das Geraet kurz neu). Display UND die gesamte Web-Oberflaeche werden umgeschaltet.
