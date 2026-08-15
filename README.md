@@ -65,6 +65,40 @@ Passgenaues, 3D-druckbares Gehaeuse fuer das ESP32-S3-Touch-LCD-1.46 (SKU 29565)
 
 ## Changelog
 
+### v3.1.0 - 2026-08-15
+
+## Neu: Einzelwert-Ansicht je Sensor
+
+Auf der Temperatur- oder Tankseite von oben nach unten wischen oeffnet eine
+grosse Ansicht fuer einen einzelnen Sensor. Links und rechts blaettert zwischen
+den Sensoren derselben Art, nach oben wischen geht zurueck. Die Ansichten
+entstehen automatisch fuer jeden erkannten Sensor, es ist nichts einzustellen.
+
+Die Ansicht bleibt stehen, bis man selbst zurueckwischt — sie springt nicht von
+allein auf die Hauptseite zurueck.
+
+**Tank** zeigt den Fuellstand als gefuellte Scheibe mit drei bewegten Wellen an
+der Oberflaeche, dazu die Literangabe, sofern der Cerbo eine Tankgroesse meldet.
+
+**Temperatur** zeigt den Wert auf einem Ringbogen von -20 bis 80 Grad.
+
+Farbe und Farbbaender sind dieselben, die je Sensor unter Einstellungen
+eingestellt sind.
+
+## Verbessert
+
+- Die Verlaufsgraphen hinter den Temperatur- und Tankwerten passen ihre Skala
+  jetzt an die tatsaechlichen Werte an. Vorher lagen nahe beieinanderliegende
+  Temperaturen als flache Linien uebereinander.
+- Der Temperaturbereich der Balkenanzeige reicht bis 80 statt 50 Grad, damit
+  auch Warmwasser nicht am Anschlag steht.
+- Groessere Beschriftungen auf den neuen Ansichten.
+- Hinweispfeile auf der Temperatur- und Tankseite zeigen, dass sich dort etwas
+  aufziehen laesst.
+
+Benoetigt PowerDotCore v0.23.0 (unveraendert gegenueber 3.0.0).
+
+
 ### v3.0.0 - 2026-08-14
 
 Erste Fassung ohne Beta-Kennzeichnung.
