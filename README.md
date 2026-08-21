@@ -67,24 +67,19 @@ Passgenaues, 3D-druckbares Gehaeuse fuer das ESP32-S3-Touch-LCD-1.46 (SKU 29565)
 
 ### v3.2.0 - 2026-08-21
 
-## Deutlich fluessiger
+## Neue Zeichenbibliothek: LVGL 9.3
 
-Die Oberflaeche zeichnet spuerbar schneller. Am staerksten dort, wo Ringe zu
-sehen sind — die Uebersichtsseiten mit den Leistungsbaendern und die Seiten mit
-Wert-Ringen. Gemessen am Geraet:
+Der PowerDot laeuft ab dieser Fassung auf LVGL 9.3.0 statt bisher 8.3.10. Das
+ist der Unterbau, der alles auf dem Display zeichnet. Der Wechsel bringt keine
+neuen Bedienelemente, sondern setzt das Geraet auf einen aktuell gepflegten
+Stand — die 8.3 stammt von 2023.
 
-| Seite | vorher | jetzt |
-|---|---|---|
-| Hauptseite mit Ringen | 22 Bilder/s | 26 Bilder/s |
-| Seiten ohne Ringe | 24 Bilder/s | 27 bis 30 Bilder/s |
-
-Dahinter steckt ein Wechsel der Zeichenbibliothek von LVGL 8.3 auf 9.3 und eine
-Aenderung an deren Bogenzeichner: der bearbeitete bisher fuer jeden Ring das
-gesamte quadratische Umfeld — auch das leere Loch in der Mitte, die leeren Ecken
-und die Winkelbereiche, in denen gar kein Ring liegt. Auf einer Seite mit
-mehreren Ringen waren das 912.600 Bildpunkte je Vollbild, bei einem Bildschirm
-von 169.744 Punkten. Jetzt wird nur noch der Ring selbst bearbeitet: 26.222
-Punkte, ein Fuenfunddreissigstel.
+Am Zeichner fuer Ringe ist eine Aenderung eingebaut: er bearbeitete fuer jeden
+Ring das gesamte quadratische Umfeld, auch das leere Loch in der Mitte, die
+leeren Ecken und die Winkelbereiche, in denen gar kein Ring liegt. Auf einer
+Seite mit mehreren Ringen waren das 912.600 Bildpunkte je Vollbild, bei einem
+Bildschirm von 169.744 Punkten. Jetzt wird nur der Ring selbst bearbeitet:
+26.222 Punkte.
 
 Die Drehung des Displays braucht keinen eigenen Zusatzspeicher mehr und wirkt
 sofort, ohne Neustart.
@@ -103,7 +98,7 @@ und die Aufzeichnungsdauer halbiert. Home Assistant fuehrt die Historie selbst.
 ## Behoben
 
 - Startseite: eine abgeschaltete Seite liess sich als Startseite auswaehlen. Die
-  Auswahl leuchtete, passierte ist nie etwas. Die gewaehlte Seite wird jetzt
+  Auswahl leuchtete, passiert ist nie etwas. Die gewaehlte Seite wird jetzt
   automatisch mit eingeschaltet.
 
 ## Fuer die Fehlersuche
