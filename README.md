@@ -65,6 +65,13 @@ Passgenaues, 3D-druckbares Gehaeuse fuer das ESP32-S3-Touch-LCD-1.46 (SKU 29565)
 
 ## Changelog
 
+### v3.2.0 - 2026-08-21
+
+Automatisch aus git log erzeugt — fuer sauberen Changelog --notes-file nutzen.
+
+3f028b7 v3.2.0: LVGL 9.3 statt 8.3.10 + Cerbo-Sensoren in Home Assistant
+
+
 ### v3.1.0 - 2026-08-15
 
 ## Neu: Einzelwert-Ansicht je Sensor
