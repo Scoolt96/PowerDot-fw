@@ -67,9 +67,51 @@ Passgenaues, 3D-druckbares Gehaeuse fuer das ESP32-S3-Touch-LCD-1.46 (SKU 29565)
 
 ### v3.2.0 - 2026-08-21
 
-Automatisch aus git log erzeugt — fuer sauberen Changelog --notes-file nutzen.
+## Deutlich fluessiger
 
-3f028b7 v3.2.0: LVGL 9.3 statt 8.3.10 + Cerbo-Sensoren in Home Assistant
+Die Oberflaeche zeichnet spuerbar schneller. Am staerksten dort, wo Ringe zu
+sehen sind — die Uebersichtsseiten mit den Leistungsbaendern und die Seiten mit
+Wert-Ringen. Gemessen am Geraet:
+
+| Seite | vorher | jetzt |
+|---|---|---|
+| Hauptseite mit Ringen | 22 Bilder/s | 26 Bilder/s |
+| Seiten ohne Ringe | 24 Bilder/s | 27 bis 30 Bilder/s |
+
+Dahinter steckt ein Wechsel der Zeichenbibliothek von LVGL 8.3 auf 9.3 und eine
+Aenderung an deren Bogenzeichner: der bearbeitete bisher fuer jeden Ring das
+gesamte quadratische Umfeld — auch das leere Loch in der Mitte, die leeren Ecken
+und die Winkelbereiche, in denen gar kein Ring liegt. Auf einer Seite mit
+mehreren Ringen waren das 912.600 Bildpunkte je Vollbild, bei einem Bildschirm
+von 169.744 Punkten. Jetzt wird nur noch der Ring selbst bearbeitet: 26.222
+Punkte, ein Fuenfunddreissigstel.
+
+Die Drehung des Displays braucht keinen eigenen Zusatzspeicher mehr und wirkt
+sofort, ohne Neustart.
+
+## Neu: Cerbo-Sensoren in Home Assistant
+
+Temperatur- und Tanksensoren, die am Cerbo haengen, erscheinen jetzt automatisch
+in Home Assistant — als eigene Entitaeten am selben Geraet wie die uebrigen
+Werte des Dots. Bei Tanks mit gemeldeter Groesse kommt zusaetzlich der Inhalt in
+Litern dazu. Verschwindet ein Sensor, wird auch seine Entitaet wieder entfernt.
+
+Die Werte laufen bewusst NICHT in den Langzeit-Logger des Dots: das haette
+dessen Datensatzformat verbreitert, die vorhandene Energie-Historie verworfen
+und die Aufzeichnungsdauer halbiert. Home Assistant fuehrt die Historie selbst.
+
+## Behoben
+
+- Startseite: eine abgeschaltete Seite liess sich als Startseite auswaehlen. Die
+  Auswahl leuchtete, passierte ist nie etwas. Die gewaehlte Seite wird jetzt
+  automatisch mit eingeschaltet.
+
+## Fuer die Fehlersuche
+
+- Neuer Endpunkt `/pdinfo`: letztes Aufwachen und Einschlafen sowie das Ergebnis
+  des Sprungs auf die Startseite.
+
+Setzt PowerDotCore v0.24.0 voraus.
 
 
 ### v3.1.0 - 2026-08-15
