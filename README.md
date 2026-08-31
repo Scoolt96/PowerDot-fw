@@ -65,6 +65,40 @@ Passgenaues, 3D-druckbares Gehaeuse fuer das ESP32-S3-Touch-LCD-1.46 (SKU 29565)
 
 ## Changelog
 
+### v3.3.0 - 2026-08-31
+
+## Behoben
+
+- **Home Assistant schrieb bei jeder Nachricht eine Warnung ins Log**, wenn ein
+  Messwert angemeldet ist, aber nie einen Wert liefert. Typischer Fall: eine
+  Wallbox, die am Cerbo nicht als Ladegerät auftaucht (z. B. Tesla Gen2). Der
+  Wert steht jetzt als „unbekannt" da, statt eine Warnung auszulösen.
+- **Die Auswahl unter „Aktive Seiten" ging bei Stromausfall verloren**, wenn die
+  einzige eingeschaltete Seite beim Start noch keinen Wert hatte (Tank,
+  Temperatur). Das Gerät hielt sie für „nichts anzuzeigen" und schaltete alle
+  Seiten wieder ein. Die Auswahl bleibt jetzt erhalten; das Gerät zeigt
+  vorübergehend alles an, bis die gewählte Seite Werte hat.
+
+  Achtung: bei betroffenen Geräten ist die alte Auswahl bereits überschrieben —
+  nach dem Update einmal neu setzen, danach hält sie.
+
+## Neu
+
+- **Systemkarte auf der Startseite ist zugeklappt.** Ein roter Punkt am
+  Kartentitel zeigt an, wenn die Anlage nicht erreichbar ist; beim ersten
+  Auftreten klappt sie von selbst auf.
+- **Die Weboberfläche kommt aus der gemeinsamen Bibliothek** — Startseite,
+  Einstellungen, Anleitung, Bluetooth und Einrichtung sehen auf allen Geräten
+  gleich aus, und eine Änderung am Aussehen wirkt überall.
+- Regler sehen jetzt auch in Firefox richtig aus.
+
+## Intern
+
+- Der Firmenname steht an einer Stelle und ist bis zur Umbenennung ein
+  Platzhalter.
+- Verlauf wird blockweise gelesen: 300 Punkte in 0,44 s statt 1,2 s.
+
+
 ### v3.2.0 - 2026-08-21
 
 ## Neue Zeichenbibliothek: LVGL 9.3
