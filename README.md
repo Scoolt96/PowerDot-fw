@@ -65,6 +65,30 @@ Passgenaues, 3D-druckbares Gehaeuse fuer das ESP32-S3-Touch-LCD-1.46 (SKU 29565)
 
 ## Changelog
 
+### v3.4.0 - 2026-09-02
+
+**Neuer Update-Weg.** Das Gerät holt Updates ab sofort über energynexus.at statt
+über GitHub. Für Sie ändert sich nichts — der Knopf „Auf Updates prüfen" bleibt,
+wo er war. Diese Fassung ist die Umstellung selbst: sie kommt noch über den
+alten Weg, danach läuft alles über den neuen.
+
+**Neu**
+- Wortmarke ENERGY/NEXUS auf dem Startbild und unter jeder Seite der
+  Weboberfläche. Der Firmenname servicepoint.st ist überall ersetzt.
+- Speicherprüfung vor jedem Update. Reicht der Speicher nicht, sagt das Gerät
+  das vorher, statt mitten im Schreiben abzubrechen.
+- Die Fassung wird beim Herunterladen gegen eine Prüfsumme gehalten.
+
+**Behoben**
+- Bei zu wenig Speicher meldete das Gerät „Ungültiges Token" statt des echten
+  Grundes.
+- Ein Update ohne vorheriges Prüfen baute eine unvollständige Adresse.
+
+**Intern**
+- Weboberfläche vollständig aus der gemeinsamen Bibliothek, keine
+  Produktkopien mehr.
+
+
 ### v3.3.0 - 2026-08-31
 
 ## Behoben
