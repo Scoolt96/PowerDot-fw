@@ -439,3 +439,16 @@ Benoetigt PowerDotCore v0.23.0.
 ---
 
 > Hinweis: Die automatisch angehaengte Source code zip enthaelt nur dieses README, nicht den privaten Firmware-Quellcode.
+
+---
+
+## Lizenz und Nutzung
+
+Copyright © 2026 EnergyNexus. Alle Rechte vorbehalten.
+
+Erlaubt ist das Herunterladen der Firmware und das Aufspielen auf ein **eigenes, echtes
+PowerDot-Geraet**. Nicht erlaubt sind Weitergabe, Bereitstellung an anderer Stelle,
+Verkauf, Nutzung auf anderer Hardware sowie Zurueckentwickeln oder Veraendern der
+Firmware. Die Dateien werden ohne Gewaehrleistung bereitgestellt.
+
+Vollstaendiger Wortlaut: **[LICENSE](LICENSE)**.

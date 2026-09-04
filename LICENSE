@@ -1,0 +1,57 @@
+Copyright (c) 2026 EnergyNexus. Alle Rechte vorbehalten. / All rights reserved.
+
+
+DEUTSCH
+=======
+
+Dieses Repository enthält ausschließlich kompilierte Firmware-Dateien (.bin) sowie
+begleitende Dateien für PowerDot-Geräte. Der Quellcode der Firmware ist proprietär
+und nicht Teil dieses Repositories.
+
+Erlaubt ist:
+  - Herunterladen der Firmware und Aufspielen auf ein eigenes, echtes PowerDot-Gerät
+  - Nutzung der hier bereitgestellten Werkzeuge zu genau diesem Zweck
+
+Ohne vorherige schriftliche Zustimmung nicht erlaubt ist:
+  - Weitergabe, Weiterverbreitung, Verkauf oder Bereitstellung der Dateien an
+    anderer Stelle
+  - Nutzung auf anderer Hardware oder in anderen Produkten
+  - Zurückentwickeln, Zerlegen, Entschlüsseln oder Verändern der Firmware
+  - Abgeleitete Werke
+
+Das Ansehen und Forken dieses öffentlichen Repositories über die GitHub-Oberfläche
+bleibt davon unberührt und richtet sich nach den Nutzungsbedingungen von GitHub.
+Für die Dateien selbst gelten die obigen Bedingungen weiter.
+
+Keine Gewährleistung: Die Dateien werden ohne jede Zusicherung bereitgestellt, die
+Nutzung erfolgt auf eigene Gefahr. Eine Haftung für Schäden — insbesondere durch ein
+fehlgeschlagenes Update — ist ausgeschlossen, soweit gesetzlich zulässig.
+
+
+ENGLISH
+=======
+
+This repository contains only compiled firmware files (.bin) and accompanying files
+for PowerDot devices. The firmware source code is proprietary and is not part of this
+repository.
+
+You may:
+  - download the firmware and install it on your own, genuine PowerDot device
+  - use the tools provided here for exactly that purpose
+
+Without prior written permission you may not:
+  - redistribute, resell or host these files elsewhere
+  - use them on other hardware or in other products
+  - reverse engineer, decompile, decrypt or modify the firmware
+  - create derivative works
+
+Viewing and forking this public repository through the GitHub interface is unaffected
+and is governed by the GitHub Terms of Service. The terms above continue to apply to
+the files themselves.
+
+No warranty: the files are provided without any warranty and are used at your own
+risk. Liability for damages — in particular from a failed update — is excluded to the
+extent permitted by law.
+
+
+Kontakt / Contact: https://energynexus.at
