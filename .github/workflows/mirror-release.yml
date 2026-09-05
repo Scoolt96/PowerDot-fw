@@ -1,5 +1,14 @@
 name: Mirror release assets to repo
 
+# Das Flash-Werkzeug auf energynexus.at liest den PLAN aus den Release-Anhängen,
+# holt die BYTES aber von raw.githubusercontent.com/<repo>/main/firmware/<tag>/.
+# Nur dort schickt GitHub die Kopfzeile Access-Control-Allow-Origin; der Anhang
+# selbst (objects.githubusercontent.com) tut es nicht, ein Browser darf ihn also
+# nicht laden. Dieser Lauf ist damit kein Beiwerk, sondern der einzige Weg, auf
+# dem eine Fassung überhaupt aufspielbar wird. Schlägt er fehl, meldet das
+# Werkzeug "Datei fehlt in der Ablage" — und niemand merkt es, bis jemand
+# flashen will.
+
 on:
   release:
     types: [published]
@@ -18,7 +27,15 @@ jobs:
         run: |
           TAG="${{ github.event.release.tag_name }}"
           mkdir -p "firmware/$TAG"
-          gh release download "$TAG" --dir "firmware/$TAG" --pattern "*.bin"
+          gh release download "$TAG" --dir "firmware/$TAG" --pattern "*.bin" --clobber
+          # Jede Fassung braucht vier Dateien: App, Bootlader, Partitionen,
+          # boot_app0. Mit weniger schreibt das Werkzeug ein halbes Abbild.
+          ANZ="$(ls -1 "firmware/$TAG"/*.bin 2>/dev/null | wc -l)"
+          echo "$ANZ .bin gespiegelt:"; ls -l "firmware/$TAG"
+          if [ "$ANZ" -lt 4 ]; then
+            echo "::error::Release $TAG hat nur $ANZ .bin-Anhänge, erwartet sind 4 (App, bootloader, partitions, boot_app0)."
+            exit 1
+          fi
         env:
           GH_TOKEN: ${{ github.token }}
 
@@ -28,5 +45,20 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add firmware/
-          git diff --staged --quiet || git commit -m "Mirror firmware $TAG assets for flash tool"
-          git push
+          if git diff --staged --quiet; then
+            echo "Nichts zu spiegeln — firmware/$TAG steht schon."
+            exit 0
+          fi
+          git commit -m "Mirror firmware $TAG assets for flash tool"
+          # WARUM DIE SCHLEIFE: powerdot_release.sh schiebt Sekunden später den
+          # Changelog auf denselben Zweig. Am 02.09.2026 kam dieser Push als
+          # zweiter an, wurde als non-fast-forward abgewiesen — und v3.4.0 bzw.
+          # v1.12.0 lagen wochenlang ohne Bootlader in der Ablage.
+          for i in 1 2 3 4 5; do
+            if git push; then exit 0; fi
+            echo "Push abgewiesen (Versuch $i) — hole nach und versuche erneut."
+            sleep $(( i * 5 ))
+            git pull --rebase origin main
+          done
+          echo "::error::Spiegeln von $TAG nach main fehlgeschlagen."
+          exit 1
